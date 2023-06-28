@@ -101,8 +101,8 @@ pdf_to_tibble <- function(pdf){
     tryCatch(
       {
         tbl_list[[j]] <- extract_general_info(txt, geninfo_idx[j, 2]+1, feedstock_idx[j, 1]-1) |>
-          add_row(key = "publications", values = extract_data_source_links(txt, pub_idx[j, 2]+1, datasource_idx[j, 1]-1)) |>
-          add_row(key = "data_source_links", values = extract_data_source_links(txt, datasource_idx[j, 2]+1, addnotes_idx[j, 1]-1)) |>
+          add_row(key = "publication", values = extract_data_source_links(txt, pub_idx[j, 2]+1, datasource_idx[j, 1]-1)) |>
+          add_row(key = "link", values = extract_data_source_links(txt, datasource_idx[j, 2]+1, addnotes_idx[j, 1]-1)) |>
           pivot_wider(names_from = key, values_from = values)},
       error = function(e) {
         print(paste(chaptername, j))
@@ -113,7 +113,7 @@ pdf_to_tibble <- function(pdf){
     )
   }
   chapter_tbl <- bind_rows(tbl_list)
-  chapter_tbl <- chapter_tbl |> add_column(chapter=chaptername)
+  chapter_tbl <- chapter_tbl |> add_column(chapter=chaptername, .before = "Type of data")
   return(chapter_tbl)
 }
 
@@ -126,6 +126,11 @@ for (i in 1:length(pdffiles)) {
 }
 
 addendum <- bind_rows(chapter_tbl_list)
-addendum <- addendum |> add_column(table_id = 1:nrow(addendum), .before = "Type of data")
+addendum <- addendum |>
+  add_column(table_id = 1:nrow(addendum), .before = "chapter") |>
+  rename(type=`Type of data`,
+         date=`Dates of the experiments`,
+         place=`Place of experimentation`
+         )
 
 usethis::use_data(addendum, overwrite = TRUE)

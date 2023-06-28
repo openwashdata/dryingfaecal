@@ -1,0 +1,8 @@
+variable_name,description
+table_id, ID number of the meta-data table
+chapter, Name of the chapter of the experimentation
+type, Type of experimentation data, e.g., centrifugation
+place, Place of the experimentation
+date, Date of the experimentation
+publication, Publication citation associated with the experiment
+link, Data source web links where the experiment raw data is stored
