@@ -73,89 +73,101 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">dryingfaecal</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co">## basic example code</span></span>
-<span><span class="va">addendum</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> </span>
-<span><span class="co">#&gt;   table_id    chapter           type</span></span>
-<span><span class="co">#&gt; 1        1 dewatering Centrifugation</span></span>
-<span><span class="co">#&gt; 2        2 dewatering Centrifugation</span></span>
-<span><span class="co">#&gt; 3        3 dewatering Centrifugation</span></span>
-<span><span class="co">#&gt; 4        4 dewatering Centrifugation</span></span>
-<span><span class="co">#&gt; 5        5 dewatering Centrifugation</span></span>
-<span><span class="co">#&gt; 6        6 dewatering Centrifugation</span></span>
-<span><span class="co">#&gt;                                                                                                                                                                                                place</span></span>
-<span><span class="co">#&gt; 1                                                                                                                               Pollution Research Group, University of KwaZulu-Natal (South Africa)</span></span>
-<span><span class="co">#&gt; 2                                                                                                                               Pollution Research Group, University of KwaZulu-Natal (South Africa)</span></span>
-<span><span class="co">#&gt; 3                                                                                                                               Pollution Research Group, University of KwaZulu-Natal (South Africa)</span></span>
-<span><span class="co">#&gt; 4                                                                                                                               Pollution Research Group, University of KwaZulu-Natal (South Africa)</span></span>
-<span><span class="co">#&gt; 5                                                                                                                               Pollution Research Group, University of KwaZulu-Natal (South Africa)</span></span>
-<span><span class="co">#&gt; 6 o Sandec: Department Sanitation, Water and Solid Waste for Development, Eawag: Federal Institute of Aquatic Science and Technology (Switzerland) o Delvic Sanitation Initiatives, Dakar (Senegal) </span></span>
-<span><span class="co">#&gt;          date</span></span>
-<span><span class="co">#&gt; 1 2018 - 2019</span></span>
-<span><span class="co">#&gt; 2 2018 - 2019</span></span>
-<span><span class="co">#&gt; 3 2018 - 2019</span></span>
-<span><span class="co">#&gt; 4 2018 - 2019</span></span>
-<span><span class="co">#&gt; 5 2018 - 2019</span></span>
-<span><span class="co">#&gt; 6        2018</span></span>
-<span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                 publication</span></span>
-<span><span class="co">#&gt; 1 Septien, S., Getahun, S., Mirara, S., Makununika, B.S.N., Mugauri, T.R., Singh, A., Pocock, J., Inambao, F., Velkushanova, K., Buckley, C.A. (2019). Investigations of faecal sludge drying from on- site sanitation facilities. Proceedings of the 10th Asia Pacific Drying Conference, Vadodara, India, 14-17 December. 310 Dewatering Addendum of data</span></span>
-<span><span class="co">#&gt; 2  Septien, S., Getahun, S., Mirara, S., Makununika, B.S.N., Mugauri, T.R., Singh, A., Pocock, J., Inambao, F., Velkushanova, K., Buckley, C.A. (2019). Investigations of faecal sludge drying from on-site sanitation facilities. Proceedings of the 10th Asia Pacific Drying Conference, Vadodara, India, 14-17 December. 312 Dewatering Addendum of data</span></span>
-<span><span class="co">#&gt; 3  Septien, S., Getahun, S., Mirara, S., Makununika, B.S.N., Mugauri, T.R., Singh, A., Pocock, J., Inambao, F., Velkushanova, K., Buckley, C.A. (2019). Investigations of faecal sludge drying from on-site sanitation facilities. Proceedings of the 10th Asia Pacific Drying Conference, Vadodara, India, 14-17 December. 314 Dewatering Addendum of data</span></span>
-<span><span class="co">#&gt; 4  Septien, S., Getahun, S., Mirara, S., Makununika, B.S.N., Mugauri, T.R., Singh, A., Pocock, J., Inambao, F., Velkushanova, K., Buckley, C.A. (2019). Investigations of faecal sludge drying from on-site sanitation facilities. Proceedings of the 10th Asia Pacific Drying Conference, Vadodara, India, 14-17 December. 316 Dewatering Addendum of data</span></span>
-<span><span class="co">#&gt; 5 Septien, S., Getahun, S., Mirara, S., Makununika, B.S.N., Mugauri, T.R., Singh, A., Pocock, J., Inambao, F., Velkushanova, K., Buckley, C.A. (2019). Investigations of faecal sludge drying from on- site sanitation facilities. Proceedings of the 10th Asia Pacific Drying Conference, Vadodara, India, 14-17 December. 318 Dewatering Addendum of data</span></span>
-<span><span class="co">#&gt; 6                                                                                                                           Ward, B. J., Traber, J., Gueye, A., Diop, B., Morgenroth, E., &amp; Strande, L. (2019). Evaluation of conceptual model and predictors of faecal sludge dewatering performance in Senegal and Tanzania. Water Research, 167, 115101.</span></span>
-<span><span class="co">#&gt;                                                                                                                                   link</span></span>
-<span><span class="co">#&gt; 1 https://www.dropbox.com/s/76dejwq7ug1zwqy/Pre- %20and%20Post%20Centrifugation%20data%20for%20FS%20and%20fresh%20faeces%20.xlsx?dl =0</span></span>
-<span><span class="co">#&gt; 2                                                         https://www.dropbox.com/s/gszw62ozno10ob2/Centrifugation%20of%20FS.xlsx?dl=0</span></span>
-<span><span class="co">#&gt; 3  https://www.dropbox.com/s/76dejwq7ug1zwqy/Pre- %20and%20Post%20Centrifugation%20data%20for%20FS%20and%20fresh%20faeces%20.xlsx?dl=0</span></span>
-<span><span class="co">#&gt; 4                                                         https://www.dropbox.com/s/gszw62ozno10ob2/Centrifugation%20of%20FS.xlsx?dl=0</span></span>
-<span><span class="co">#&gt; 5 https://www.dropbox.com/s/76dejwq7ug1zwqy/Pre- %20and%20Post%20Centrifugation%20data%20for%20FS%20and%20fresh%20faeces%20.xlsx?dl =0</span></span>
-<span><span class="co">#&gt; 6                                                                                      https://data.mendeley.com/datasets/w5y55vf3cn/1</span></span>
-<span><span class="co">#&gt;                                                                                                                                                                   Type of faecal material</span></span>
-<span><span class="co">#&gt; 1                                                                              Faecal sludge from anaerobic baffled reactor (ABR) from a decentralised wastewater treatment plant (DEWAT)</span></span>
-<span><span class="co">#&gt; 2                                                                                                                                   Faecal sludge from urine diversion dry toilets (UDDT)</span></span>
-<span><span class="co">#&gt; 3                                                                                                                            Faecal sludge from dry ventilated improved pit latrine (VIP)</span></span>
-<span><span class="co">#&gt; 4                                                                                                                                    Faecal sludge from wet ventilated pit latrines (VIP)</span></span>
-<span><span class="co">#&gt; 5                                                                                                                                                                            Fresh faeces</span></span>
-<span><span class="co">#&gt; 6 Faecal sludge from septic tanks/holding tanks and pit latrines from a variety\n  of sources (incl. households, schools, public toilets,offices, places of worship, \n  and restaurants)</span></span>
-<span><span class="co">#&gt;                       Location of collection</span></span>
-<span><span class="co">#&gt; 1                       Durban, South Africa</span></span>
-<span><span class="co">#&gt; 2                       Durban, South Africa</span></span>
-<span><span class="co">#&gt; 3                       Durban, South Africa</span></span>
-<span><span class="co">#&gt; 4                       Durban, South Africa</span></span>
-<span><span class="co">#&gt; 5                       Durban, South Africa</span></span>
-<span><span class="co">#&gt; 6 o Dakar, Senegal o Dar es Salaam, Tanzania</span></span>
-<span><span class="co">#&gt;                            Age before collection Moisture content</span></span>
-<span><span class="co">#&gt; 1                                        Unknown          ~ 90%wt</span></span>
-<span><span class="co">#&gt; 2                                  Up to 3 years          ~ 75%wt</span></span>
-<span><span class="co">#&gt; 3                                  Up to 5 years          ~ 75%wt</span></span>
-<span><span class="co">#&gt; 4                                  Up to 5 years          ~ 95%wt</span></span>
-<span><span class="co">#&gt; 5                                     A few days          ~ 80%wt</span></span>
-<span><span class="co">#&gt; 6 Variable (from several weeks to several years)  87.0 – 99.8 %wt</span></span>
-<span><span class="co">#&gt;   Total solids content Volatile solids content Ash content</span></span>
-<span><span class="co">#&gt; 1              ~ 10%wt                 ~ 75%db     ~ 25%db</span></span>
-<span><span class="co">#&gt; 2              ~ 25%wt                 ~ 55%db     ~ 45%db</span></span>
-<span><span class="co">#&gt; 3              ~ 25%wt                 ~ 40%db     ~ 60%db</span></span>
-<span><span class="co">#&gt; 4               ~ 5%wt                 ~ 65%db     ~ 35%db</span></span>
-<span><span class="co">#&gt; 5              ~ 20%wt                 ~ 85%db     ~ 15%db</span></span>
-<span><span class="co">#&gt; 6         0.2 – 13 %wt             26 – 85 %db 15 – 74 %db</span></span>
-<span><span class="co">#&gt;                                                           Presence of trash?</span></span>
-<span><span class="co">#&gt; 1 Yes (mainly small pieces of paper after pre-screening during pit emptying)</span></span>
-<span><span class="co">#&gt; 2                                     Yes (mainly stones, hair and plastics)</span></span>
-<span><span class="co">#&gt; 3                            Yes (mainly hair extensions, plastic and rocks)</span></span>
-<span><span class="co">#&gt; 4                               No (sludge pre-screened during pit emptying)</span></span>
-<span><span class="co">#&gt; 5                                                                         No</span></span>
-<span><span class="co">#&gt; 6                                                                         No</span></span>
-<span><span class="co">#&gt;                   Pre-treatment</span></span>
-<span><span class="co">#&gt; 1     Screening to remove trash</span></span>
-<span><span class="co">#&gt; 2 Screening to remove the trash</span></span>
-<span><span class="co">#&gt; 3     Screening to remove trash</span></span>
-<span><span class="co">#&gt; 4                        Mixing</span></span>
-<span><span class="co">#&gt; 5                        Mixing</span></span>
-<span><span class="co">#&gt; 6                          None</span></span></code></pre></div>
+<span><span class="va">addendum</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 16</span></span>
+<span><span class="co">#&gt;   table_id chapter   type  place date  publication link  faecal_type collect_loc</span></span>
+<span><span class="co">#&gt;      &lt;int&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      </span></span>
+<span><span class="co">#&gt; 1        1 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…</span></span>
+<span><span class="co">#&gt; 2        2 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…</span></span>
+<span><span class="co">#&gt; 3        3 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…</span></span>
+<span><span class="co">#&gt; 4        4 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…</span></span>
+<span><span class="co">#&gt; 5        5 dewateri… Cent… "Pol… 2018… Septien, S… http… "Fresh fae… Durban, So…</span></span>
+<span><span class="co">#&gt; 6        6 dewateri… Cent… "o S… 2018  Ward, B. J… http… "Faecal sl… o Dakar, S…</span></span>
+<span><span class="co">#&gt; # ℹ 7 more variables: age &lt;chr&gt;, moisture &lt;chr&gt;, tot_solids &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   volatile_solids &lt;chr&gt;, ash &lt;chr&gt;, trash_presence &lt;chr&gt;, pretreatment &lt;chr&gt;</span></span></code></pre></div>
+<p>The dataset contains the following variables:</p>
+<table class="table">
+<colgroup>
+<col width="21%">
+<col width="78%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">variable_name</th>
+<th align="left">description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">table_id</td>
+<td align="left">ID number of the meta-data table</td>
+</tr>
+<tr class="even">
+<td align="left">chapter</td>
+<td align="left">Name of the chapter of the experimentation</td>
+</tr>
+<tr class="odd">
+<td align="left">type</td>
+<td align="left">Type of experimentation data, e.g., centrifugation</td>
+</tr>
+<tr class="even">
+<td align="left">place</td>
+<td align="left">Place of the experimentation</td>
+</tr>
+<tr class="odd">
+<td align="left">date</td>
+<td align="left">Date of the experimentation</td>
+</tr>
+<tr class="even">
+<td align="left">publication</td>
+<td align="left">Publication citation associated with the experiment</td>
+</tr>
+<tr class="odd">
+<td align="left">link</td>
+<td align="left">Data source web links where the experiment raw data is stored</td>
+</tr>
+<tr class="even">
+<td align="left">faecal_type</td>
+<td align="left">Type of faecal material</td>
+</tr>
+<tr class="odd">
+<td align="left">collect_loc</td>
+<td align="left">Location of collection</td>
+</tr>
+<tr class="even">
+<td align="left">age</td>
+<td align="left">Age before collection</td>
+</tr>
+<tr class="odd">
+<td align="left">moisture</td>
+<td align="left">Moisture content</td>
+</tr>
+<tr class="even">
+<td align="left">tot_solids</td>
+<td align="left">Total solids content</td>
+</tr>
+<tr class="odd">
+<td align="left">volatile_solids</td>
+<td align="left">Volatile solids content</td>
+</tr>
+<tr class="even">
+<td align="left">ash</td>
+<td align="left">Ash content</td>
+</tr>
+<tr class="odd">
+<td align="left">trash_presence</td>
+<td align="left">Whether trash is present or not</td>
+</tr>
+<tr class="even">
+<td align="left">pretreatment</td>
+<td align="left">Pre-treatment</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">

@@ -20,8 +20,6 @@ devtools::install_github("openwashdata/dryingfaecal")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(dryingfaecal)
 
@@ -30,17 +28,35 @@ addendum |>
   head() |>
   tibble::as_tibble()
 #> # A tibble: 6 × 16
-#>   table_id chapter    type  place date  publication link  Type of faecal mater…¹
-#>      <int> <chr>      <chr> <chr> <chr> <chr>       <chr> <chr>                 
-#> 1        1 dewatering Cent… "Pol… 2018… Septien, S… http… "Faecal sludge from a…
-#> 2        2 dewatering Cent… "Pol… 2018… Septien, S… http… "Faecal sludge from u…
-#> 3        3 dewatering Cent… "Pol… 2018… Septien, S… http… "Faecal sludge from d…
-#> 4        4 dewatering Cent… "Pol… 2018… Septien, S… http… "Faecal sludge from w…
-#> 5        5 dewatering Cent… "Pol… 2018… Septien, S… http… "Fresh faeces"        
-#> 6        6 dewatering Cent… "o S… 2018  Ward, B. J… http… "Faecal sludge from s…
-#> # ℹ abbreviated name: ¹​`Type of faecal material`
-#> # ℹ 8 more variables: `Location of collection` <chr>,
-#> #   `Age before collection` <chr>, `Moisture content` <chr>,
-#> #   `Total solids content` <chr>, `Volatile solids content` <chr>,
-#> #   `Ash content` <chr>, `Presence of trash?` <chr>, `Pre-treatment` <chr>
+#>   table_id chapter   type  place date  publication link  faecal_type collect_loc
+#>      <int> <chr>     <chr> <chr> <chr> <chr>       <chr> <chr>       <chr>      
+#> 1        1 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…
+#> 2        2 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…
+#> 3        3 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…
+#> 4        4 dewateri… Cent… "Pol… 2018… Septien, S… http… "Faecal sl… Durban, So…
+#> 5        5 dewateri… Cent… "Pol… 2018… Septien, S… http… "Fresh fae… Durban, So…
+#> 6        6 dewateri… Cent… "o S… 2018  Ward, B. J… http… "Faecal sl… o Dakar, S…
+#> # ℹ 7 more variables: age <chr>, moisture <chr>, tot_solids <chr>,
+#> #   volatile_solids <chr>, ash <chr>, trash_presence <chr>, pretreatment <chr>
 ```
+
+The dataset contains the following variables:
+
+| variable_name   | description                                                   |
+|:----------------|:--------------------------------------------------------------|
+| table_id        | ID number of the meta-data table                              |
+| chapter         | Name of the chapter of the experimentation                    |
+| type            | Type of experimentation data, e.g., centrifugation            |
+| place           | Place of the experimentation                                  |
+| date            | Date of the experimentation                                   |
+| publication     | Publication citation associated with the experiment           |
+| link            | Data source web links where the experiment raw data is stored |
+| faecal_type     | Type of faecal material                                       |
+| collect_loc     | Location of collection                                        |
+| age             | Age before collection                                         |
+| moisture        | Moisture content                                              |
+| tot_solids      | Total solids content                                          |
+| volatile_solids | Volatile solids content                                       |
+| ash             | Ash content                                                   |
+| trash_presence  | Whether trash is present or not                               |
+| pretreatment    | Pre-treatment                                                 |

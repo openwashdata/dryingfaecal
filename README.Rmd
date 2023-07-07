@@ -31,8 +31,6 @@ devtools::install_github("openwashdata/dryingfaecal")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` {r} 
 library(dryingfaecal)
 
@@ -41,4 +39,8 @@ addendum |>
   head() |>
   tibble::as_tibble()
 ```
-
+The dataset contains the following variables:
+```{r, echo=FALSE}
+readr::read_csv("data-raw/dictionary.csv", show_col_types = FALSE) |>
+  knitr::kable()
+```
