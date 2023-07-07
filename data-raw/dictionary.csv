@@ -6,3 +6,12 @@ place, Place of the experimentation
 date, Date of the experimentation
 publication, Publication citation associated with the experiment
 link, Data source web links where the experiment raw data is stored
+faecal_type, Type of faecal material
+collect_loc, Location of collection
+age, Age before collection
+moisture, Moisture content
+tot_solids, Total solids content
+volatile_solids, Volatile solids content
+ash, Ash content
+trash_presence, Whether trash is present or not
+pretreatment, Pre-treatment
