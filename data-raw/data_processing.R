@@ -197,12 +197,69 @@ for (i in 1:length(pdffiles)) {
 
 addendum <- tibble(bind_rows(chapter_tbl_list))
 # Add buggy tables manually
+## dewatering 6
+addendum[6, 7:15] <- list("Faecal sludge from septic tanks/holding tanks and pit latrines from a variety
+  of sources (incl. households, schools, public toilets,offices, places of worship,
+  and restaurants)",
+  "o Dakar, Senegal o Dar es Salaam, Tanzania",
+  "Variable (from several weeks to several years)",
+  "87.0 – 99.8 %wt",
+  "0.2 – 13 %wt",
+  "26 – 85 %db",
+  "15 – 74 %db",
+  "No",
+  "None")
+
+## dewatering 7
+addendum[7, 7:15] <- list("Faecal sludge from septic tanks/holding tanks and pit
+                          latrines from a variety of sources (incl. households,
+                          schools, public toilets, offices, places of worship,
+                          and restaurants)",
+                          "o Dakar, Senegal o Dar es Salaam, Tanzania",
+                          "Variable (from several weeks to several years)",
+                          "87.0 – 99.8 %wt",
+                          "0.2 – 13 %wt",
+                          "26 – 85 %db",
+                          "15 – 74 %db",
+                          "No",
+                          "None")
+
+## phsio 6
+addendum[79, 7:15] <- list("Faecal sludge collected from ventilated improved pit latrines\n Type of faecal material (VIP)",
+                        "Durban, South Africa",
+                        "Up to 5 years",
+                        "~ 80% wt",
+                        "~ 20% wt",
+                        "~ 50% db",
+                        "~ 50% db",
+                        "Yes",
+                        "Screening to remove the large pieces of trash")
+
+## physio 11
+addendum[84, 7:15] <- list("Faecal sludge collected from ventilated improved pit latrines (VIP)",
+                "Durban, South Africa",
+                "Up to 5 years",
+                "~ 80% wt",
+                "~ 20% wt",
+                "~ 50% db",
+                "~ 50% db",
+                "Yes",
+                "Screening to remove the large pieces of trash")
 
 addendum <- addendum |>
   add_column(table_id = 1:nrow(addendum), .before = "chapter") |>
   rename(type=`Type of data`,
          date=`Dates of the experiments`,
-         place=`Place of experimentation`
+         place=`Place of experimentation`,
+         faecal_type = `Type of faecal material`,
+         collect_loc = `Location of collection`,
+         age = `Age before collection`,
+         moisture = `Moisture content`,
+         tot_solids = `Total solids content`,
+         volatile_solids = `Volatile solids content`,
+         ash = `Ash content`,
+         trash_presence = `Presence of trash?`,
+         pretreatment = `Pre-treatment`
          )
 
 usethis::use_data(addendum, overwrite = TRUE)

@@ -33,10 +33,12 @@ devtools::install_github("openwashdata/dryingfaecal")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+``` {r} 
 library(dryingfaecal)
+
 ## basic example code
-addendum |>
-  head() 
+addendum |> 
+  head() |>
+  tibble::as_tibble()
 ```
 
