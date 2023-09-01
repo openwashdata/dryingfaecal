@@ -6,9 +6,21 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of dryingfaecal is to …
+## Introduction
 
-## Installation
+The data is related to the drying process of faecal sludge and was
+collected from different institutions with relevant information about
+the feedstock and experimental conditions. Experimental data is
+categorized into 8 groups: thermodynamics, kinetics, physiochemical
+properties, morphology, mechanical properties, dewaterability,
+disinfection, and gas emission.
+
+Different types of faecal samples were involved on the generation of the
+data: - fresh faeces and faecal sludge from various types of onsite
+sanitation facilities, among which ventilated improved pit (VIP)
+latrines - urine diversion dry toilets (UDDT) - anaerobic baffled
+reactor (ABR) from a decentralized wastewater treatment plant (DEWAT)
+TODO: INSERT PICTURES? \## Installation
 
 You can install the development version of dryingfaecal from
 [GitHub](https://github.com/) with:
@@ -60,3 +72,10 @@ The dataset contains the following variables:
 | ash             | Ash content                                                   |
 | trash_presence  | Whether trash is present or not                               |
 | pretreatment    | Pre-treatment                                                 |
+
+## Categories
+
+### Dewatering
+
+Experiment: Centrifugation done in a centrifuge HERMLE Z323, during 120
+minutes at a rate of 5000 RPM, for 40 g of sample per centrifuge tube
