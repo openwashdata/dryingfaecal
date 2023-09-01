@@ -4,6 +4,8 @@ library(stringr)
 library(dplyr)
 library(tidyr)
 library(tibble)
+library(readxl)
+# Addendum tables -----------------------------------
 ## Some reference from this amazing blog post: https://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/
 
 # Split the original pdf into different chapters according to toc
@@ -261,5 +263,38 @@ addendum <- addendum |>
          trash_presence = `Presence of trash?`,
          pretreatment = `Pre-treatment`
          )
+## Get cloud links that can be downloaded directly: single link ending with xlsx
+links <- addendum |>
+  filter(str_starts(string = link, pattern = "http")) |>
+  mutate(link = str_remove(string = link, pattern = "\\?dl *=0*")) |>
+  filter(str_ends(string = link, pattern=".xlsx")) |>
+  select(table_id, chapter, link)
+buggy_link_table_ids <- setdiff(addendum$table_id, links$table_id) # table ids that need to manually download tables
+write_lines(links$link, "./data-raw/links.txt") # used for bash script to download excel tables
+
+# Chapter summary -----------------------------------
+chaptersummary <- read.csv("./data-raw/chaptersummary.csv")
+
+# Dewatering Table 1
+centrifugation <- readxl::read_excel("./data-raw/experiment/Pre- %20and%20Post%20Centrifugation%20data%20for%20FS%20and%20fresh%20faeces%20.xlsx",
+                              range = "B3:K15")
+## tidy column names
+old_col_names <- colnames(centrifugation)
+new_col_names <- c("sample_name", "avg_moisture", "tube", "speed", "time", "tube_mass",
+                   "tot_mass_before", "tot_mass_after", "water_activity_after", "moisture_after")
+colnames(centrifugation) <- new_col_names
+## Fill NA values
+centrifugation <- centrifugation |>
+  tidyr::fill(speed) |>
+  tidyr::fill(time) |>
+  tidyr::fill(`sample_name`) |>
+  tidyr::fill(avg_moisture)
+## add column of water activity before centrifugation
+water_activity_before <- rep(c(0.978, 0.989, 0.98, 0.97), each=3)
+centrifugation <- centrifugation |>
+  dplyr::mutate(water_activity_before = water_activity_before)
+
 
 usethis::use_data(addendum, overwrite = TRUE)
+usethis::use_data(chaptersummary, overwrite = TRUE)
+usethis::use_data(centrifugation, overwrite = TRUE)
