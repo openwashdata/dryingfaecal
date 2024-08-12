@@ -5,7 +5,7 @@ library(dplyr)
 library(tidyr)
 library(tibble)
 library(readxl)
-# Addendum tables -----------------------------------
+# Addendum tables --------------------------------------------------------------
 ## Some reference from this amazing blog post: https://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/
 
 # Split the original pdf into different chapters according to toc
@@ -272,15 +272,18 @@ links <- addendum |>
 buggy_link_table_ids <- setdiff(addendum$table_id, links$table_id) # table ids that need to manually download tables
 write_lines(links$link, "./data-raw/links.txt") # used for bash script to download excel tables
 
-# Chapter summary -----------------------------------
+# Chapter summary --------------------------------------------------------------
 chaptersummary <- read.csv("./data-raw/chaptersummary.csv")
 
-# Dewatering Table 1
+
+
+# Dewatering Table 1 -----------------------------------------------------------
 centrifugation <- readxl::read_excel("./data-raw/experiment/Pre- %20and%20Post%20Centrifugation%20data%20for%20FS%20and%20fresh%20faeces%20.xlsx",
                               range = "B3:K15")
+
 ## tidy column names
 old_col_names <- colnames(centrifugation)
-new_col_names <- c("sample_name", "avg_moisture", "tube", "speed", "time", "tube_mass",
+new_col_names <- c("sample_name", "avg_moisture", "tube_no", "speed_rpm", "time_min", "tube_mass",
                    "tot_mass_before", "tot_mass_after", "water_activity_after", "moisture_after")
 colnames(centrifugation) <- new_col_names
 ## Fill NA values
@@ -294,6 +297,90 @@ water_activity_before <- rep(c(0.978, 0.989, 0.98, 0.97), each=3)
 centrifugation <- centrifugation |>
   dplyr::mutate(water_activity_before = water_activity_before)
 
+# Dewatering Table 2 -----------------------------------------------------------
+exp_colnames <- c("exp_date", "sample_name", "tube_no", "crucible_mass", "sample_mass",
+                  "speed_rpm", "time_min", "tube_mass","tot_mass_before", "tot_mass_after",
+                  "volume", "filter_mass", "after_oven", "after_furnace", "tot_suspended",
+                  "average_tss", "water_activity_after", "moisture_after")
+exp2 <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                           sheet = 1,
+                           range = "A8:R25",
+                           col_names = exp_colnames)
+exp3 <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                           sheet = 1,
+                           range = "A30:R50",
+                           col_names = exp_colnames)
+tbl <- bind_rows(centrifugation,exp2, exp3)
+
+## Water Activity
+wa <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                          sheet = 3,
+                          range = c("A5:H23", "L5:L23")) #TODO: col name
+wa <- wa |>
+  #
+  tidyr::fill(time) |>
+  # add columns
+  dplyr::mutate(fraction_no, fraction_pellets)
+## Moisture Content (Sheet 2 and Sheet 4)
+### VIP
+vip_6000_raw <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                   sheet = 4,
+                   range = "L12:O32",
+                   col_names = c("time", "a_mass", "b_mass", "c_mass"),
+                   col_types = "numeric")
+vip_6000_raw<- vip_6000_raw |>
+  dplyr::mutate(sample_name = "DRY VIP", speed = 6000) |>
+  tidyr::fill(a_mass, b_mass, c_mass)
+
+vip_8000_raw <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                                   sheet = 4,
+                                   range = "L44:O64",
+                                   col_names = c("time", "a_mass", "b_mass", "c_mass"),
+                                   col_types = "numeric")
+vip_8000_raw <- vip_8000_raw |>
+  dplyr::mutate(sample_name = "DRY VIP", speed = 8000) |>
+  tidyr::fill(a_mass, b_mass, c_mass)
+
+vip_10000_raw <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                                   sheet = 4,
+                                   range = "L74:O94",
+                                   col_names = c("time", "a_mass", "b_mass", "c_mass"),
+                                   col_types = "numeric")
+vip_10000_raw <- vip_10000_raw |>
+  dplyr::mutate(sample_name = "DRY VIP", speed = 10000) |>
+  tidyr::fill(a_mass, b_mass, c_mass)
+
+vip <- dplyr::bind_rows(vip_6000_raw, vip_8000_raw, vip_10000_raw)
+### UDDT
+uddt_6000_raw <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                                   sheet = 4,
+                                   range = "X12:AA32",
+                                   col_names = c("time", "a_mass", "b_mass", "c_mass"),
+                                   col_types = "numeric")
+uddt_6000_raw<- uddt_6000_raw |>
+  dplyr::mutate(sample_name = "UDDT", speed = 6000) |>
+  tidyr::fill(a_mass, b_mass, c_mass)
+
+uddt_8000_raw <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                                   sheet = 4,
+                                   range = "X44:AA64",
+                                   col_names = c("time", "a_mass", "b_mass", "c_mass"),
+                                   col_types = "numeric")
+uddt_8000_raw <- uddt_8000_raw |>
+  dplyr::mutate(sample_name = "UDDT", speed = 8000) |>
+  tidyr::fill(a_mass, b_mass, c_mass)
+
+uddt_10000_raw <- readxl::read_excel("./data-raw/experiment/Centrifugation%20of%20FS.xlsx",
+                                    sheet = 4,
+                                    range = "X74:AA94",
+                                    col_names = c("time", "a_mass", "b_mass", "c_mass"),
+                                    col_types = "numeric")
+uddt_10000_raw <- uddt_10000_raw |>
+  dplyr::mutate(sample_name = "UDDT", speed = 10000) |>
+  tidyr::fill(a_mass, b_mass, c_mass)
+
+uddt <- dplyr::bind_rows(uddt_6000_raw, uddt_8000_raw, uddt_10000_raw)
+moisture_content_exp <- dplyr::bind_rows(vip, uddt)
 
 usethis::use_data(addendum, overwrite = TRUE)
 usethis::use_data(chaptersummary, overwrite = TRUE)
