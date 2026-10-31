@@ -2,4 +2,4 @@
 
 ### All vignettes
 
-- [examples](examples.md):
+- [examples](https://openwashdata.github.io/dryingfaecal/articles/examples.md):

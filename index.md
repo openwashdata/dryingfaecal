@@ -1,5 +1,7 @@
 # dryingfaecal
 
+A data package published by [openwashdata](https://openwashdata.org).
+
 ## Introduction
 
 The data is related to the drying process of faecal sludge and was

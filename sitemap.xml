@@ -1,10 +1,10 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>/404.html</loc></url>
-<url><loc>/LICENSE.html</loc></url>
-<url><loc>/articles/examples.html</loc></url>
-<url><loc>/articles/index.html</loc></url>
-<url><loc>/authors.html</loc></url>
-<url><loc>/index.html</loc></url>
-<url><loc>/reference/index.html</loc></url>
+<url><loc>https://openwashdata.github.io/dryingfaecal/404.html</loc></url>
+<url><loc>https://openwashdata.github.io/dryingfaecal/LICENSE.html</loc></url>
+<url><loc>https://openwashdata.github.io/dryingfaecal/articles/examples.html</loc></url>
+<url><loc>https://openwashdata.github.io/dryingfaecal/articles/index.html</loc></url>
+<url><loc>https://openwashdata.github.io/dryingfaecal/authors.html</loc></url>
+<url><loc>https://openwashdata.github.io/dryingfaecal/index.html</loc></url>
+<url><loc>https://openwashdata.github.io/dryingfaecal/reference/index.html</loc></url>
 </urlset>
 

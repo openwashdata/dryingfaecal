@@ -3,4 +3,7 @@ pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   articles/examples: examples.html
-last_built: 2026-10-29T15:27Z
+last_built: 2026-10-31T20:54Z
+urls:
+  reference: https://openwashdata.github.io/dryingfaecal/reference
+  article: https://openwashdata.github.io/dryingfaecal/articles

@@ -1,5 +1,7 @@
 # dryingfaecal
 
+A data package published by [openwashdata](https://openwashdata.org).
+
 ## Introduction
 
 The data is related to the drying process of faecal sludge and was
@@ -82,4 +84,4 @@ minutes at a rate of 5000 RPM, for 40 g of sample per centrifuge tube
 
 ### All vignettes
 
-- [examples](examples.md):
+- [examples](https://openwashdata.github.io/dryingfaecal/articles/examples.md):
