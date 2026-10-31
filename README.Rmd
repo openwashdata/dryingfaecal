@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
+A data package published by [openwashdata](https://openwashdata.org).
+
 ## Introduction 
 The data is related to the drying process of faecal sludge and was collected from different institutions with relevant information about the feedstock and experimental conditions. 
 Experimental data is categorized into 8 groups: thermodynamics, kinetics, physiochemical properties, morphology, mechanical properties, dewaterability, disinfection, and gas emission. 

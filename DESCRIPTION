@@ -16,3 +16,17 @@ Depends:
     R (>= 2.10)
 LazyData: true
 Config/Needs/website: rmarkdown
+Language: en-GB
+Date: 2026-10-31
+URL: https://github.com/openwashdata/dryingfaecal
+BugReports: https://github.com/openwashdata/dryingfaecal/issues
+Config/washr/funding: This project was funded by the [Open Research Data Program of the ETH Board](https://ethrat.ch/en/eth-domain/open-research-data/).
+Config/washr/analytics-domain: openwashdata.github.io
+Config/washr/doi-provider: zenodo
+Config/washr/zenodo-community: openwashdata
+Config/washr/brand-source: openwashdata/brand
+Config/washr/publisher: Published by [openwashdata](https://openwashdata.org), a project of [Global Health Engineering](https://ghe.ethz.ch/) at ETH Zurich.
+Config/washr/home: https://openwashdata.org
+Config/washr/catalog: https://openwashdata.org/pages/gallery/data/
+Config/washr/community: This package is part of [openwashdata](https://openwashdata.org). Browse the [data catalogue](https://openwashdata.org/pages/gallery/data/) or get the [newsletter](https://openwashdata.org/pages/newsletter/).
+Config/washr/version: 1.2.1
