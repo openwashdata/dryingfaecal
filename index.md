@@ -1,7 +1,5 @@
 # dryingfaecal
 
-A data package published by [openwashdata](https://openwashdata.org).
-
 ## Introduction
 
 The data is related to the drying process of faecal sludge and was
@@ -77,3 +75,5 @@ The dataset contains the following variables:
 
 Experiment: Centrifugation done in a centrifuge HERMLE Z323, during 120
 minutes at a rate of 5000 RPM, for 40 g of sample per centrifuge tube
+
+Published by openwashdata, <https://openwashdata.org>.
