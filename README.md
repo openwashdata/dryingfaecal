@@ -1,12 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# dryingfaecal
+# dryingfaecal <a href="https://openwashdata.org"><img src="man/figures/logo.png" align="right" width="120" alt="openwashdata" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
-
-A data package published by [openwashdata](https://openwashdata.org).
 
 ## Introduction
 
@@ -81,3 +79,5 @@ The dataset contains the following variables:
 
 Experiment: Centrifugation done in a centrifuge HERMLE Z323, during 120
 minutes at a rate of 5000 RPM, for 40 g of sample per centrifuge tube
+
+Published by openwashdata, <https://openwashdata.org>.
