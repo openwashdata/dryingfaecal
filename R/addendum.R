@@ -1,0 +1,25 @@
+#' addendum: Overview of the datasheets in the addendum of data on faecal sludge drying
+#' 
+#' One row per datasheet of the addendum of data related to drying of faecal sludge from on-site sanitation facilities and fresh faeces. Each row holds the general information of a datasheet (chapter, type of data, place and dates of the experiment), the description of the feedstock and the link to the file with the raw data.
+#' 
+#' @format A tibble with 137 rows and 16 variables
+#' \describe{
+#'   \item{table_id}{ID number of the meta-data table}
+#'   \item{chapter}{Name of the chapter of the experimentation}
+#'   \item{type}{Type of experimentation data, e.g., centrifugation}
+#'   \item{place}{Place of the experimentation}
+#'   \item{date}{Date of the experimentation}
+#'   \item{publication}{Publication citation associated with the experiment}
+#'   \item{link}{Data source web links where the experiment raw data is stored}
+#'   \item{faecal_type}{Type of faecal material}
+#'   \item{collect_loc}{Location of collection}
+#'   \item{age}{Age before collection}
+#'   \item{moisture}{Moisture content}
+#'   \item{tot_solids}{Total solids content}
+#'   \item{volatile_solids}{Volatile solids content}
+#'   \item{ash}{Ash content}
+#'   \item{trash_presence}{Whether trash is present or not}
+#'   \item{pretreatment}{Pre-treatment}
+#' }
+#' @source Addendum of data related to drying of faecal sludge from on-site sanitation facilities and fresh faeces. Gates Open Research, 2020. \doi{10.21955/gatesopenres.1116702.1}
+"addendum"

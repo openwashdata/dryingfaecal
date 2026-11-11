@@ -39,7 +39,22 @@
   "publisher": {
     "@type": "Organization",
     "name": "openwashdata",
-    "url": "https://openwashdata.org"
+    "url": "https://openwashdata.org",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Global Health Engineering",
+      "url": "https://ghe.ethz.ch/",
+      "parentOrganization": {
+        "@type": "Organization",
+        "@id": "https://ror.org/03zqk4w67",
+        "name": "Institute of Design, Materials and Fabrication",
+        "parentOrganization": {
+          "@type": "Organization",
+          "@id": "https://ror.org/05a28rw58",
+          "name": "ETH Zurich"
+        }
+      }
+    }
   },
   "includedInDataCatalog": {
     "@type": "DataCatalog",
@@ -129,47 +144,58 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.sample_name"
+      "name": "centrifugation.sample_name",
+      "description": "Name of the faecal material: ABR (sludge from an anaerobic baffled reactor), UDDT (sludge from urine diversion dry toilets), DRY VIP (sludge from dry ventilated improved pit latrines) or Fresh Faeces"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.avg_moisture"
+      "name": "centrifugation.avg_moisture",
+      "description": "Average moisture content of the material before centrifugation, in percent by weight (one value per material)"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.tube"
+      "name": "centrifugation.tube",
+      "description": "Letter of the centrifuge tube (a, b or c), three tubes per material"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.speed"
+      "name": "centrifugation.speed",
+      "description": "Speed of the centrifuge in revolutions per minute (RPM)"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.time"
+      "name": "centrifugation.time",
+      "description": "Duration of the centrifugation in minutes"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.tube_mass"
+      "name": "centrifugation.tube_mass",
+      "description": "Mass of the centrifuge tube in grams"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.tot_mass_before"
+      "name": "centrifugation.tot_mass_before",
+      "description": "Mass of the tube with the sample before centrifugation in grams, stored as text because the first value is written '63, 7524' in the source file"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.tot_mass_after"
+      "name": "centrifugation.tot_mass_after",
+      "description": "Mass of the tube with the solid residue after centrifugation in grams"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.water_activity_after"
+      "name": "centrifugation.water_activity_after",
+      "description": "Water activity of the solid residue after centrifugation (no unit, scale 0 to 1)"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.moisture_after"
+      "name": "centrifugation.moisture_after",
+      "description": "Moisture content of the solid residue after centrifugation, in percent by weight"
     },
     {
       "@type": "PropertyValue",
-      "name": "centrifugation.water_activity_before"
+      "name": "centrifugation.water_activity_before",
+      "description": "Water activity of the material before centrifugation (no unit, scale 0 to 1), one value per material"
     }
   ]
 }

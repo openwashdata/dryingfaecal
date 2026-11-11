@@ -4,6 +4,7 @@
 # dryingfaecal <a href="https://openwashdata.org"><img src="man/figures/logo.png" align="right" width="120" alt="openwashdata" /></a>
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 ## Introduction
@@ -54,24 +55,35 @@ addendum |>
 
 The dataset contains the following variables:
 
-| variable_name   | description                                                   |
-|:----------------|:--------------------------------------------------------------|
-| table_id        | ID number of the meta-data table                              |
-| chapter         | Name of the chapter of the experimentation                    |
-| type            | Type of experimentation data, e.g., centrifugation            |
-| place           | Place of the experimentation                                  |
-| date            | Date of the experimentation                                   |
-| publication     | Publication citation associated with the experiment           |
-| link            | Data source web links where the experiment raw data is stored |
-| faecal_type     | Type of faecal material                                       |
-| collect_loc     | Location of collection                                        |
-| age             | Age before collection                                         |
-| moisture        | Moisture content                                              |
-| tot_solids      | Total solids content                                          |
-| volatile_solids | Volatile solids content                                       |
-| ash             | Ash content                                                   |
-| trash_presence  | Whether trash is present or not                               |
-| pretreatment    | Pre-treatment                                                 |
+| directory | file_name | variable_name | variable_type | description |
+|:---|:---|:---|:---|:---|
+| data/ | addendum.rda | table_id | integer | ID number of the meta-data table |
+| data/ | addendum.rda | chapter | character | Name of the chapter of the experimentation |
+| data/ | addendum.rda | type | character | Type of experimentation data, e.g., centrifugation |
+| data/ | addendum.rda | place | character | Place of the experimentation |
+| data/ | addendum.rda | date | character | Date of the experimentation |
+| data/ | addendum.rda | publication | character | Publication citation associated with the experiment |
+| data/ | addendum.rda | link | character | Data source web links where the experiment raw data is stored |
+| data/ | addendum.rda | faecal_type | character | Type of faecal material |
+| data/ | addendum.rda | collect_loc | character | Location of collection |
+| data/ | addendum.rda | age | character | Age before collection |
+| data/ | addendum.rda | moisture | character | Moisture content |
+| data/ | addendum.rda | tot_solids | character | Total solids content |
+| data/ | addendum.rda | volatile_solids | character | Volatile solids content |
+| data/ | addendum.rda | ash | character | Ash content |
+| data/ | addendum.rda | trash_presence | character | Whether trash is present or not |
+| data/ | addendum.rda | pretreatment | character | Pre-treatment |
+| data/ | centrifugation.rda | sample_name | character | Name of the faecal material: ABR (sludge from an anaerobic baffled reactor), UDDT (sludge from urine diversion dry toilets), DRY VIP (sludge from dry ventilated improved pit latrines) or Fresh Faeces |
+| data/ | centrifugation.rda | avg_moisture | numeric | Average moisture content of the material before centrifugation, in percent by weight (one value per material) |
+| data/ | centrifugation.rda | tube | character | Letter of the centrifuge tube (a, b or c), three tubes per material |
+| data/ | centrifugation.rda | speed | numeric | Speed of the centrifuge in revolutions per minute (RPM) |
+| data/ | centrifugation.rda | time | numeric | Duration of the centrifugation in minutes |
+| data/ | centrifugation.rda | tube_mass | numeric | Mass of the centrifuge tube in grams |
+| data/ | centrifugation.rda | tot_mass_before | character | Mass of the tube with the sample before centrifugation in grams, stored as text because the first value is written ‘63, 7524’ in the source file |
+| data/ | centrifugation.rda | tot_mass_after | numeric | Mass of the tube with the solid residue after centrifugation in grams |
+| data/ | centrifugation.rda | water_activity_after | numeric | Water activity of the solid residue after centrifugation (no unit, scale 0 to 1) |
+| data/ | centrifugation.rda | moisture_after | numeric | Moisture content of the solid residue after centrifugation, in percent by weight |
+| data/ | centrifugation.rda | water_activity_before | numeric | Water activity of the material before centrifugation (no unit, scale 0 to 1), one value per material |
 
 ## Categories
 
