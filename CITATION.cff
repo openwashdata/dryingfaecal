@@ -1,35 +1,50 @@
-# -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.5.0
+# ------------------------------------------------
+# CITATION.cff file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# -----------------------------------------------------------
+# ------------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "dryingfaecal" in publications use:'
-type: software
+type: dataset
 license: CC-BY-4.0
-title: 'dryingfaecal: What the Package Does (One Line, Title Case)'
+title: 'dryingfaecal: Experimental Data on Drying of Faecal Sludge and Fresh Faeces'
 version: 0.0.0.9000
-abstract: What the package does (one paragraph).
+abstract: Data from the addendum of data related to the drying of faecal sludge from
+  on-site sanitation facilities and fresh faeces, published on Gates Open Research
+  in 2020 <https://doi.org/10.21955/gatesopenres.1116702.1>. The dataset addendum
+  gives an overview of the 137 datasheets of the addendum in eight chapters (thermodynamics,
+  kinetics, physicochemical properties, morphological properties, mechanical properties,
+  dewatering, disinfection and gas analysis), with the place and the dates of each
+  experiment, the description of the feedstock and the link to the file with the raw
+  data. The dataset centrifugation holds the results of a dewatering experiment in
+  which sludge from an anaerobic baffled reactor, from urine diversion dry toilets
+  and from ventilated improved pit latrines, and fresh faeces, were centrifuged, with
+  the moisture content and the water activity of the material before and after centrifugation.
 authors:
 - family-names: Zhong
   given-names: Mian
   email: mzhong@ethz.ch
   orcid: https://orcid.org/0009-0009-4546-7214
+- family-names: Schöbitz
+  given-names: Lars
+  email: lschoebitz@ethz.ch
+  orcid: https://orcid.org/0000-0003-2196-5015
+repository-code: https://github.com/openwashdata/dryingfaecal
+url: https://github.com/openwashdata/dryingfaecal
+date-released: '2026-10-31'
 contact:
-- family-names: Zhong
-  given-names: Mian
-  email: mzhong@ethz.ch
-  orcid: https://orcid.org/0009-0009-4546-7214
-references:
-- type: software
-  title: 'R: A Language and Environment for Statistical Computing'
-  notes: Depends
-  url: https://www.R-project.org/
-  authors:
-  - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2023'
-  institution:
-    name: R Foundation for Statistical Computing
-  version: '>= 2.10'
+- family-names: Schöbitz
+  given-names: Lars
+  email: lschoebitz@ethz.ch
+  orcid: https://orcid.org/0000-0003-2196-5015
+keywords:
+- open data
+- washdata
+- faecal sludge
+- fresh faeces
+- drying
+- dewatering
+- centrifugation
+- on-site sanitation
+- South Africa
+

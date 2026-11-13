@@ -1,0 +1,17 @@
+
+bibentry(bibtype = "Misc",
+         key = "zhong_etall:2026",
+         title = "dryingfaecal: Experimental Data on Drying of Faecal Sludge and Fresh Faeces",
+         author = c(person(given = "Mian",
+                           family = "Zhong",
+                           email = "mzhong@ethz.ch",
+                           comment = c(ORCID = "0009-0009-4546-7214")),
+                    person(given = "Lars",
+                           family = "Schöbitz",
+                           email = "lschoebitz@ethz.ch",
+                           comment = c(ORCID = "0000-0003-2196-5015"))),
+         year = "2026",
+         url = "https://github.com/openwashdata/dryingfaecal",
+         abstract = "Data from the addendum of data related to the drying of faecal sludge from on-site sanitation facilities and fresh faeces, published on Gates Open Research in 2020 <https://doi.org/10.21955/gatesopenres.1116702.1>. The dataset addendum gives an overview of the 137 datasheets of the addendum in eight chapters (thermodynamics, kinetics, physicochemical properties, morphological properties, mechanical properties, dewatering, disinfection and gas analysis), with the place and the dates of each experiment, the description of the feedstock and the link to the file with the raw data. The dataset centrifugation holds the results of a dewatering experiment in which sludge from an anaerobic baffled reactor, from urine diversion dry toilets and from ventilated improved pit latrines, and fresh faeces, were centrifuged, with the moisture content and the water activity of the material before and after centrifugation.",
+         keywords = "open data,washdata,faecal sludge,fresh faeces,drying,dewatering,centrifugation,on-site sanitation,South Africa",
+         version = "0.0.0.9000")
