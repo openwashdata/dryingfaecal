@@ -38,4 +38,4 @@ footer:
     right: [washr, built_with]
   components:
     publisher: Published by [openwashdata](https://openwashdata.org), a project of [Global Health Engineering](https://ghe.ethz.ch/) at ETH Zurich.
-    washr: Package built with [washr](https://openwashdata.github.io/washr/) 1.2.2.
+    washr: Package built with [washr](https://openwashdata.github.io/washr/) 1.3.0.
