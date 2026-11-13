@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/openwashdata/dryingfaecal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/openwashdata/dryingfaecal/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Introduction
@@ -30,6 +31,19 @@ You can install the development version of dryingfaecal from
 # install.packages("devtools")
 devtools::install_github("openwashdata/dryingfaecal")
 ```
+
+Alternatively, you can download the individual datasets as a CSV or XLSX
+file from the table below.
+
+1.  Click Download CSV. A window opens that displays the CSV in your
+    browser.
+2.  Right-click anywhere inside the window and select “Save Page As…”.
+3.  Save the file in a folder of your choice.
+
+| dataset | CSV | XLSX |
+|:---|:---|:---|
+| addendum | [Download CSV](https://github.com/openwashdata/dryingfaecal/raw/main/inst/extdata/addendum.csv) | [Download XLSX](https://github.com/openwashdata/dryingfaecal/raw/main/inst/extdata/addendum.xlsx) |
+| centrifugation | [Download CSV](https://github.com/openwashdata/dryingfaecal/raw/main/inst/extdata/centrifugation.csv) | [Download XLSX](https://github.com/openwashdata/dryingfaecal/raw/main/inst/extdata/centrifugation.xlsx) |
 
 ## Example
 

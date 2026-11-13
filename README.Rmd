@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # dryingfaecal <a href="https://openwashdata.org"><img src="man/figures/logo.png" align="right" width="120" alt="openwashdata" /></a>
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/openwashdata/dryingfaecal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/openwashdata/dryingfaecal/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Introduction 
@@ -36,6 +37,33 @@ You can install the development version of dryingfaecal from [GitHub](https://gi
 devtools::install_github("openwashdata/dryingfaecal")
 ```
 
+Alternatively, you can download the individual datasets as a CSV or XLSX
+file from the table below.
+
+1.  Click Download CSV. A window opens that displays the CSV in
+    your browser.
+2.  Right-click anywhere inside the window and select "Save Page As...".
+3.  Save the file in a folder of your choice.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+# A release links the files of its own tag, so a citation of that version
+# gets the same files later; a development version links the main branch.
+version <- read.dcf("DESCRIPTION", fields = "Version")[[1]]
+ref <- if (grepl("^[0-9]+\\.[0-9]+\\.[0-9]+$", version)) paste0("v", version) else "main"
+extdata_path <- paste0("https://github.com/openwashdata/dryingfaecal/raw/", ref, "/inst/extdata/")
+
+readr::read_csv("data-raw/dictionary.csv") |> 
+  dplyr::distinct(file_name) |> 
+  dplyr::mutate(file_name = stringr::str_remove(file_name, ".rda")) |> 
+  dplyr::rename(dataset = file_name) |> 
+  dplyr::mutate(
+    CSV = paste0("[Download CSV](", extdata_path, dataset, ".csv)"),
+    XLSX = paste0("[Download XLSX](", extdata_path, dataset, ".xlsx)")
+  ) |> 
+  knitr::kable()
+
+```
 
 ## Example
 
