@@ -1,14 +1,15 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "name": "What the Package Does (One Line, Title Case)",
+  "name": "Experimental Data on Drying of Faecal Sludge and Fresh Faeces",
   "alternateName": "dryingfaecal",
-  "description": "What the package does (one paragraph).",
+  "description": "Data from the addendum of data related to the drying of faecal sludge from on-site sanitation facilities and fresh faeces, published on Gates Open Research in 2020 <doi:10.21955/gatesopenres.1116702.1>. The dataset addendum gives an overview of the 137 datasheets of the addendum in eight chapters (thermodynamics, kinetics, physicochemical properties, morphological properties, mechanical properties, dewatering, disinfection and gas analysis), with the place and the dates of each experiment, the description of the feedstock and the link to the file with the raw data. The dataset centrifugation holds the results of a dewatering experiment in which sludge from an anaerobic baffled reactor, from urine diversion dry toilets and from ventilated improved pit latrines, and fresh faeces, were centrifuged, with the moisture content and the water activity of the material before and after centrifugation.",
   "version": "0.0.0.9000",
   "url": "https://github.com/openwashdata/dryingfaecal",
   "datePublished": "2026-10-31",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "isAccessibleForFree": true,
+  "keywords": ["open data", "washdata", "faecal sludge", "fresh faeces", "drying", "dewatering", "centrifugation", "on-site sanitation", "South Africa"],
   "creator": [
     {
       "@type": "Person",
@@ -58,6 +59,11 @@
     "name": "openwashdata",
     "url": "https://openwashdata.org/pages/gallery/data/"
   },
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "South Africa, Canada, India, Senegal, Switzerland, United Kingdom, United States"
+  },
+  "temporalCoverage": "2012-01-01/2020-12-31",
   "variableMeasured": [
     {
       "@type": "PropertyValue",
@@ -193,6 +199,32 @@
       "@type": "PropertyValue",
       "name": "centrifugation.water_activity_before",
       "description": "Water activity of the material before centrifugation (no unit, scale 0 to 1), one value per material"
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "addendum.csv",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://raw.githubusercontent.com/openwashdata/dryingfaecal/main/inst/extdata/addendum.csv"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "addendum.xlsx",
+      "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "contentUrl": "https://raw.githubusercontent.com/openwashdata/dryingfaecal/main/inst/extdata/addendum.xlsx"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "centrifugation.csv",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://raw.githubusercontent.com/openwashdata/dryingfaecal/main/inst/extdata/centrifugation.csv"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "centrifugation.xlsx",
+      "encodingFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "contentUrl": "https://raw.githubusercontent.com/openwashdata/dryingfaecal/main/inst/extdata/centrifugation.xlsx"
     }
   ]
 }
