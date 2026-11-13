@@ -1,4 +1,4 @@
-# dryingfaecal (development version)
+# dryingfaecal 0.0.0.9000
 
 - The package now says what it holds: DESCRIPTION carries a title and a description of the two datasets, discovery keywords, the countries of the experiments and the years the data cover (2012 to 2020). The countries and the years are read from the data and wait for confirmation.
 - Both datasets can be downloaded as CSV and XLSX files from `inst/extdata`, and the README links them in a table.
