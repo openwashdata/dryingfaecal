@@ -1,4 +1,11 @@
-## code to prepare `data_processing` dataset goes here
+# Description ------------------------------------------------------------------
+# R script to process the raw data in data-raw/ into the two datasets of the
+# package: addendum (one row per datasheet of the addendum of data) and
+# centrifugation (dewatering table 1). Run it from the package root.
+# Load packages ----------------------------------------------------------------
+## Run the following code in console if you don't have the packages
+## install.packages(c("usethis", "fs", "here", "pdftools", "stringr", "dplyr",
+##                    "tidyr", "tibble", "readr", "readxl", "openxlsx"))
 library(pdftools)
 library(stringr)
 library(dplyr)
@@ -9,9 +16,9 @@ library(readxl)
 ## Some reference from this amazing blog post: https://www.brodrigues.co/blog/2018-06-10-scraping_pdfs/
 
 # Split the original pdf into different chapters according to toc
-master <- "./data-raw/gatesopenres-196902.pdf"
+source_pdf <- "./data-raw/gatesopenres-196902.pdf"
 processed_pdf_dir <- "./data-raw/processed_pdf"
-dir.create(path = processed_pdf_dir)
+dir.create(path = processed_pdf_dir, showWarnings = FALSE)
 # thermodynamics 31-79
 thermodynamics <- file.path(processed_pdf_dir, "thermodynamics.pdf")
 # kinetics 81-167
@@ -29,14 +36,19 @@ disinfection <- file.path(processed_pdf_dir, "disinfection.pdf")
 # gas analysis 346-356
 gas <- file.path(processed_pdf_dir, "gas_analysis.pdf")
 
-pdf_subset(master, pages = 31:79, thermodynamics)
-pdf_subset(master, pages = 81:167, kinestics)
-pdf_subset(master, pages = 169:258, physiochemical)
-pdf_subset(master, 260:283, morphilogical)
-pdf_subset(master, 285:314, mech)
-pdf_subset(master, 316:331, dewatering)
-pdf_subset(master, 333:344, disinfection)
-pdf_subset(master, 346:356, gas)
+# A chapter file that exists is kept: writing it again changes its bytes, not
+# its content. Delete the files in data-raw/processed_pdf to split again.
+split_chapter <- function(pages, output) {
+  if (!file.exists(output)) pdf_subset(source_pdf, pages = pages, output = output)
+}
+split_chapter(31:79, thermodynamics)
+split_chapter(81:167, kinestics)
+split_chapter(169:258, physiochemical)
+split_chapter(260:283, morphilogical)
+split_chapter(285:314, mech)
+split_chapter(316:331, dewatering)
+split_chapter(333:344, disinfection)
+split_chapter(346:356, gas)
 
 # extract general information
 extract_general_info <- function(txt, start, end){
@@ -270,11 +282,12 @@ links <- addendum |>
   filter(str_ends(string = link, pattern=".xlsx")) |>
   select(table_id, chapter, link)
 buggy_link_table_ids <- setdiff(addendum$table_id, links$table_id) # table ids that need to manually download tables
-write_lines(links$link, "./data-raw/links.txt") # used for bash script to download excel tables
+readr::write_lines(links$link, "./data-raw/links.txt") # used for bash script to download excel tables
 
 # Chapter summary --------------------------------------------------------------
+# The chapter summary is read here and is not a dataset of the package: it has
+# no rows in the dictionary and no help page.
 chaptersummary <- read.csv("./data-raw/chaptersummary.csv")
-
 
 
 # Dewatering Table 1 -----------------------------------------------------------
@@ -283,7 +296,8 @@ centrifugation <- readxl::read_excel("./data-raw/experiment/Pre- %20and%20Post%2
 
 ## tidy column names
 old_col_names <- colnames(centrifugation)
-new_col_names <- c("sample_name", "avg_moisture", "tube_no", "speed_rpm", "time_min", "tube_mass",
+## The names are those of the published data and of the dictionary.
+new_col_names <- c("sample_name", "avg_moisture", "tube", "speed", "time", "tube_mass",
                    "tot_mass_before", "tot_mass_after", "water_activity_after", "moisture_after")
 colnames(centrifugation) <- new_col_names
 ## Fill NA values
@@ -297,6 +311,12 @@ water_activity_before <- rep(c(0.978, 0.989, 0.98, 0.97), each=3)
 centrifugation <- centrifugation |>
   dplyr::mutate(water_activity_before = water_activity_before)
 
+# Work in progress, not run ----------------------------------------------------
+# The code in this block is unfinished and feeds no dataset of the package.
+# It stops with errors as it stands (the tables do not bind, the range of the
+# water activity sheet is not valid, two columns are not defined), so it is
+# switched off until someone finishes it.
+if (FALSE) {
 # Dewatering Table 2 -----------------------------------------------------------
 exp_colnames <- c("exp_date", "sample_name", "tube_no", "crucible_mass", "sample_mass",
                   "speed_rpm", "time_min", "tube_mass","tot_mass_before", "tot_mass_after",
@@ -381,7 +401,14 @@ uddt_10000_raw <- uddt_10000_raw |>
 
 uddt <- dplyr::bind_rows(uddt_6000_raw, uddt_8000_raw, uddt_10000_raw)
 moisture_content_exp <- dplyr::bind_rows(vip, uddt)
+}
 
+# Export Data ------------------------------------------------------------------
 usethis::use_data(addendum, overwrite = TRUE)
-usethis::use_data(chaptersummary, overwrite = TRUE)
 usethis::use_data(centrifugation, overwrite = TRUE)
+fs::dir_create(here::here("inst", "extdata"))
+for (name in c("addendum", "centrifugation")) {
+  obj <- get(name)
+  readr::write_csv(obj, here::here("inst", "extdata", paste0(name, ".csv")))
+  openxlsx::write.xlsx(obj, here::here("inst", "extdata", paste0(name, ".xlsx")))
+}
